@@ -14,4 +14,5 @@ correctly generated, copy that file inside the `js` folder of this module.
 This module has a GNU Affero General Public License v3.0.
 
 ## Author
-libremente <surf> AT <libremente> DOT <eu>
+libremente  
+`<surf> AT <libremente> DOT <eu>`
