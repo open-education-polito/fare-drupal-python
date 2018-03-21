@@ -1,0 +1,7 @@
+name = FARE Python
+description = Module to read and run Python scripts inside FARE
+
+package = FARE
+dependencies[] = fare
+core = "7.x"
+project = "fare"

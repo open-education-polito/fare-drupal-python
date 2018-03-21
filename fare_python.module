@@ -1,0 +1,73 @@
+<?php
+
+/**
+ * @file
+ * Documentation for the whole python.module file.
+ *
+ * In this file there are the following functions:
+ * - setting permissions
+ * - handling the preprossessing
+ * - add the menu/page entry.
+ */
+
+/**
+ * Set permissions.
+ *
+ * Implements hook_permission().
+ */
+function fare_python_permission() {
+  $perms = array(
+    'administer fare_python' => array(
+      'title' => 'Amministra fare Python',
+      'description' => 'Assumi il controllo totale sul modulo',
+    ),
+    'access fare_python' => array(
+      'title' => 'Accesso alle componenti del modulo',
+      'description' => 'Accesso a tutte le funzionalità del modulo',
+    ),
+  );
+  return $perms;
+}
+
+/**
+ * Pass parameters to template.
+ *
+ * Implements preprocess_page().
+ */
+function fare_python_preprocess_page(&$variables) {
+  // Get parameter from variables.
+  if (!empty($variables)) {
+    $python_code = variable_get('python_code');
+    variable_set('python_code', "");
+    if (empty($python_code)) {
+      $python_code = "# Inserisci qui il tuo codice";
+    }
+    // Setting variables for rendering.
+    $variables['python_code'] = $python_code;
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function fare_python_menu() {
+  $items = array();
+
+  $items['python'] = array(
+    'type' => MENU_CALLBACK,
+    'title' => 'Esegui il tuo codice Python',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('_python_page'),
+    'access callback' => 'user_access',
+    'access arguments' => array('access fare_python'),
+  );
+
+  return $items;
+}
+
+/**
+ * Function returning null.
+ */
+function _python_page($page = NULL) {
+  return;
+}
