@@ -6,7 +6,7 @@ The module requires the `bundle.js` file to be correctly located in the `js`
 folder. 
 So, once cloned, in order for it to work you have to also checkout this other
 repo:
-(oep-python-online)[https://github.com/Open-Education-Polito/oep-python-online]
+[oep-python-online](https://github.com/Open-Education-Polito/oep-python-online)
 and follow the instruction over there. Once the `bundle.js` file has been
 correctly generated, copy that file inside the `js` folder of this module. 
 
